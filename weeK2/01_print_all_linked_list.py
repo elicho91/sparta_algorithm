@@ -6,8 +6,6 @@ class Node:
         self.data = data
         self.next = None
 
-
-
 node = Node(3)
 first_node = Node(4)
 node.next = first_node

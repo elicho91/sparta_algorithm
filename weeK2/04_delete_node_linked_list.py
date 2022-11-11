@@ -23,6 +23,25 @@ class LinkedList:
     def get_node(self, index):
         return "index 번째 노드를 반환해보세요!"
 
+    def add_node(self, index, value):
+        new_node = Node(value)
+        node = self.get_node(index)
+        next_node = node.next
+        node.next = new_node
+        new_node.next = next_node
+        return
+
+    def delete_node(self, index):
+        if index == 0:
+           self.head = self.head.next
+           return
+        node = self.get_node(index - 1)
+        node.next = node.next.next
+
+
 linked_list = LinkedList(5)
 linked_list.append(12)
-print(linked_list.get_node(0)) # -> 5를 들고 있는 노드를 반환해야 합니다!
+linked_list.add_node(0, 3)
+linked_list.print_all()
+linked_list.delete_node(0)
+linked_list.print_all()
